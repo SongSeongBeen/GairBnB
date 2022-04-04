@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mydog">
+	<!-- mydog insert -->
+	<insert id="insert" parameterType="MyDogVo">
+		<![CDATA[
+			INSERT INTO mydog
+			VALUES(#{usersNo} , SEQ_MYDOG_NO.nextval, null, #{name}, #{birth}, #{gender}, #{breed}, #{weight}, #{neuter})
+		]]>
+	</insert>
+	
+	<!-- mydog select -->
+	<select id="select" parameterType="int" resultType="MyDogVo">
+		<![CDATA[
+			SELECT usersno,
+			       mydogno,
+			       photo,
+			       name,
+			       to_char(birth, 'yyyy.mm.dd') birth,
+			       gender,
+			       breed,
+			       weight,
+			       neuter
+			FROM mydog
+			WHERE usersno = #{usersNo}
+		]]>
+	</select>
+	
+	<!-- 갤러리 insert -->
+	<insert id="glleryInsert" parameterType="com.javaex.vo.GalleryVo">
+		<![CDATA[
+			INSERT INTO gallery
+			VALUES(SEQ_GALLERY_NO.nextval , #{usersNo}, #{photoNo}, #{saveName})
+		]]>
+	</insert>
+	
+	<!-- 갤러리 select -->
+	<select id="gllerySelect" parameterType="int" resultType="com.javaex.vo.GalleryVo">
+		<![CDATA[
+			SELECT 	galleryNo,
+				  	usersNo,
+				  	photoNo,
+				  	saveName
+			FROM gallery
+			WHERE usersno = #{usersNo}
+		]]>
+	</select>
+	
+	<!-- 포토테이블 select -->
+	<select id="photoSelect" parameterType="int" resultType="com.javaex.vo.PhotoVo">
+		<![CDATA[
+			SELECT 	photoNo,
+				  	saveName
+			FROM photo
+			WHERE photoNo = #{photoNo}
+		]]>
+	</select>
+	
+	<!-- 갤러리 update -->
+	<update id="glleryUpdate" parameterType="com.javaex.vo.PhotoVo">
+		<![CDATA[
+			update mydog
+			set photo = #{saveName}
+			where usersNo = #{usersNo}
+		]]>
+	</update>
+</mapper>

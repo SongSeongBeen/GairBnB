@@ -1,0 +1,102 @@
+/* clearfix */
+.clearfix{*zoom:1;}
+.clearfix:before, .clearfix:after {display: block; content: ""; line-height: 0;}
+.clearfix:after {clear: both;}
+
+.close {margin: 10px;}
+
+#modal-header{
+  text-align: center;
+  margin: 40px 0px 20px 0px;
+}
+
+.modal-title{
+  font-weight: bolder;
+}
+
+.modal-body {margin: 0px 100px 0px 100px;}
+
+.small{
+  font-size: 12px;
+  color: #8d8d8d;
+  padding: 10px 0px 10px 0px;
+  border-bottom: 1px solid #8d8d8d;;
+}
+
+
+.modal-footer p{
+  text-align: center;
+  margin: 10px;
+  font-size: 10px;
+  color: #8d8d8d;
+}
+
+/*버튼*/
+
+#btnsub {
+	margin: 0px 235px 0px 0px;
+	padding: 15px 60px;
+	background-color: #6DB5EF;
+	border: none;
+	border-radius: 5px;
+ 	font-size: 17px;
+ 	color: #fff;
+}
+
+#modal-header {
+  margin: 20px 0px 10px 0px;
+}
+#modal-header h3 {
+  padding: 0px 0px 0px 40px;
+}
+
+.bi-check2-circle{
+  font-size: 30px;
+}
+
+#modal-header img {
+  width: 70px;
+  height: 35px;
+}
+
+.modal-title{
+  padding-top: 10px;
+}
+
+.mar{
+  font-weight: bold;
+}
+
+#re {
+  width: 150px;
+  height: 100px;
+}
+
+.modal-body h4 {margin: 0px 0px 15px 0px;}
+.inform{margin: 20px 0px 20px 0px;}
+
+/*스크롤*/
+.scroll {
+  width: 20px;
+  height: 100px;
+  overflow: auto;
+  float: left;
+  margin: 0 0px;
+}
+
+.scroll1::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+.scroll1::-webkit-scrollbar-track {
+  background: #ddd;
+}
+ 
+.scroll1::-webkit-scrollbar-thumb {
+  background: #666; 
+}
+
+.line {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #8d8d8d;
+}

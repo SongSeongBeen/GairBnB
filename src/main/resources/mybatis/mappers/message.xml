@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="message">
+
+	<!-- 유저 타입 받아오기 -->
+	<select id="getType" parameterType="int" resultType="MessageVo">
+      <![CDATA[
+         select userstype,
+               name,
+               usersNo,
+               path
+         from users
+         where usersno = #{usersNo}
+      ]]>
+	</select>
+
+	<!-- 메세지 리스트 가져오기 -->
+	<select id="getList" parameterType="int" resultType="MessageVo">
+      <![CDATA[
+		select tg.target,
+		       u.usersNo,
+		       u.id,
+		       u.name,
+		       u.usersType,
+		       tg.me,
+		       u.path
+		from (
+		      (select usersTo target,
+		              usersFrom me
+		       from messege
+		       where usersFrom = #{usersNo}
+		       )  
+		       union
+		      (select usersFrom, 
+		              usersTo mee
+		       from messege
+		       where usersTo = #{usersNo}
+		       )  
+		      ) tg, users u
+		where tg.target = u.usersNo
+      ]]>
+	</select>
+
+	<!-- 메세지 가져오기 -->
+	<select id="getMessage" parameterType="int" resultType="MessageVo">
+         <![CDATA[
+            select  text,
+                    usersFrom,
+                    to_char(sendDate,'YYYY-MM-DD HH24:MI') sendDate
+            from messege
+            where (usersFrom = #{usersNo} and usersTo = #{target})
+            or (usersFrom = #{target} and usersTo = #{usersNo})
+            order by messegeNo asc
+         ]]>
+         
+	</select>
+	
+	<!-- 상대방 이름 가져오기 -->
+		<select id="getName" parameterType="int" resultType="MessageVo">
+	         <![CDATA[
+	         	select name,
+	         		   path
+	         	from users
+	         	where usersNo =  #{target}
+	         ]]>
+		</select>
+		
+	<!-- 메세지 전송 -->
+	<select id="insertM" parameterType="MessageVo">
+         <![CDATA[
+            insert into messege
+            values (seq_messege_no.nextval, #{usersNo}, #{target}, sysdate, #{text})
+         ]]>
+
+	</select>
+</mapper>
+
+
+
+
+
+
+
+

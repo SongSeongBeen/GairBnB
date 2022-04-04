@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/*header 공통*/
+.header-logo {
+  box-sizing: border-box;
+  margin-right: 100px;
+}
+
+.search_input_box {
+  height: 60px;
+}
+
+#menu {
+}
+
+/* 로고 */
+#logo {
+  margin: 10px 0px 10px 0px;
+  width: 150px;
+}
+

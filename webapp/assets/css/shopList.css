@@ -1,0 +1,95 @@
+@charset "UTF-8";
+/******************************************
+초기화 관련
+******************************************/
+
+/* 여백 초기화 */
+body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, 
+input, fieldset, legend, p, select, table, th, td, tr,
+textarea, button, form {margin: 0; padding: 0;}
+
+body {font-family: 'Noto Sans KR', sans-serif; color: #333; background-color: #fff !important;}
+
+ul, ol {list-style-type: none;}
+a:link {text-decoration: none; color: #000}
+a:visited {text-decoration: none; color: #000}
+a:active {text-decoration: none; color: #000}
+a:hover {text-decoration: none; color: #000}
+
+/* clearfix */
+.clearfix{*zoom:1;}
+.clearfix:before, .clearfix:after {display: block; content: ""; line-height: 0;}
+.clearfix:after {clear: both;}
+
+/* 레이아웃 */
+#wrap {margin: 0px auto; width: 1440px;}		
+#container { width: 1440px;}
+#aside {float: left; width: 360px; padding: 0px 0px 0px 0px;}
+#content { float: left; width: 1080px; margin: 0px 0px 100px 0px;}
+
+#joinform {
+	margin: 50px 0px 0px 220px;
+}
+.exp{
+	font-size: 16px;
+	display: inline-block;
+	margin: 8px 0px 15px 15px;
+	color: #777;
+}
+.list {
+  text-align: left;
+  padding: 50px 300px 30px 300px; 
+  font-size: 23px;  
+}
+.color {
+    background-color:#3D9BE9;
+    border-color:#3D9BE9 !important;
+}
+.lead{
+	margin: 0px;
+}
+#titleArea{
+	margin: 50px 400px 0px 450px;
+	padding: 30px 50px 30px 150px;
+}
+
+#categoryArea{
+	padding: 0px 0px 0px 80px;
+}
+
+#categoryArea .cate{
+	float: left;
+	margin: 10px 10px 10px 10px;
+	padding: 10px 0px 10px 0px;
+	border-radius: 30px;
+	width: 100px;
+	text-align: center;
+}
+#categoryArea .cate:hover{
+	background: #EEE;
+	cursor: pointer;
+}
+
+#categoryArea .cate.active{
+	background: #3D9BE9;
+	color : #FFFFFF;
+	border-radius: 30px;
+}
+
+#itemArea {
+	padding: 50px 0px 0px 100px;
+}
+#itemArea .item{
+	width: 300px;
+	margin : 0px 10px 30px 0px;
+	padding : 0px 0px 20px 0px;
+	float: left;
+}
+		#itemArea .item h4{
+			margin : 0px 0px 10px 0px;
+		}
+		#itemArea .item img {
+			width: 300px;
+			height: 300px;
+			margin: 0px 0px 20px 0px;
+		}

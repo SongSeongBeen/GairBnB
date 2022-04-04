@@ -1,0 +1,296 @@
+/*여백 초기화*/
+body, div, ul, li, dl, dt, ol, ht, h2, h3, h4, h5, h6,
+input, fieldset, legend, p, select, table, th, td, tr,
+textarea, button, form {margin:0; padding:0;}
+
+body {font-family: 'Noto Sans KR', sans-serif; color: #333; background-color: #fff}
+
+ul, ol {list-style-type: none;}
+a:link {text-decoration: none; color: #000}
+a:visited {text-decoration: none; color: #000}
+a:active {text-decoration: none; color: #000}
+a:hover {text-decoration: none; color: #000}
+
+/* clearfix */
+.clearfix{*zoom:1;}
+.clearfix:before, .clearfix:after {display: block; content: ""; line-height: 0;}
+.clearfix:after {clear: both;}
+
+/* 레이아웃 관련 */
+#wrap {margin: 0px auto; width: 1440px; }
+
+#container { width: 1440px;}
+
+#content { float: left; width: 1200px; margin: 0px 0px 100px 0px;}
+
+/* 메인컨텐츠(content) */
+#content-head {
+    margin: 45px 0px 30px 30px;
+}
+ 
+#content-head h1 {
+    height: 40px;
+    line-height: 30px;
+    margin: 3px 0px 3px 0px;
+    font-size: 30px;
+    font-weight: bold;
+}
+ 
+#content-head #location {
+    display: inline-block;
+    margin: 25px 0px 0px 0px;
+    font-size: 12px;
+}
+ 
+#content-head #location ul>li {
+    float: left;
+}
+ 
+#content-head #location ul>li:after {
+    content: ">";
+    margin: 0px 5px 0px 5px;
+}
+ 
+#content-head #location ul>li.last:after {
+    content: none;
+}
+ 
+#content-main {
+    margin: 45px 0px 0px 30px;
+}
+ 
+ 
+
+#nav {font-size: 12px;}
+
+#now {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 5px 0px 10px 0px;
+}
+
+#list {
+	margin-left: 20px;
+    border-top: 1px solid #bdbdbd;
+    border-top-left-radius: 30px;
+    border-bottom: 1px solid #bdbdbd;
+    border-left: 1px solid #bdbdbd;
+    width: 300px;
+    height: 62px;
+}
+
+#list>p {
+    margin: 20px 0px 0px 60px;
+    font-weight: bolder;
+}
+
+#list>.profile {
+    margin: 10px 0px 0px 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.profile {
+    float: left;
+    width: 60px;
+    height: 60px;
+    border-radius: 70%
+}
+
+#dList {
+    float: left;
+    margin-left: 20px;
+    width: 300px;
+    height: 530px;
+    padding: 0px;
+    border-bottom:1px solid #bdbdbd;
+    border-left:1px solid #bdbdbd;
+}
+
+#dList>div {
+    padding: 10px 0px 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+#dList>div:hover {
+    background-color: #EEEEEE;
+}
+
+#dList .name {
+    float: left;
+    margin: 7px 0px 0px 15px;
+    padding: 0px 40px 0px 0px;
+}
+
+#dList .timeL {
+    float: left;
+    margin: 7px 10px 0px 15px;
+    padding: 0px 40px 0px 0px;
+    font-size: 10px;
+    color: #666;
+}
+
+.link {
+	cursor: pointer;
+	onclick: "";
+}
+
+/*스크롤*/
+.scroll {
+    width: 20px;
+    height: 200px;
+    overflow: auto;
+    float: left;
+    margin: 0 0px;
+}
+  
+.scroll1::-webkit-scrollbar {
+    width: 10px;
+}
+   
+.scroll1::-webkit-scrollbar-track {
+    background: #ddd;
+}
+   
+.scroll1::-webkit-scrollbar-thumb {
+    background: #666; 
+}
+
+.scroll::-webkit-scrollbar:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+/*디테일 영역*/
+#pdetail {
+    float: left;
+    width: 750px;
+    height: 62px;
+    border: 1px solid #bdbdbd;
+    background-color: #EEEEEE;
+}
+
+#pdetail .profile {
+    float: left;
+    margin: 10px 0px 10px 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 70%
+}
+
+#pdetail .name {
+    float: left;
+    padding: 20px 15px 0px 10px;
+    color: #000;
+}
+
+
+#gnpd {margin-top: 40px;}
+
+/*대화창*/
+#conver {
+    float: left;
+    width: 750px;
+    height: 400px;
+    border-bottom: 1px solid #bdbdbd;
+    border-left: 1px solid #bdbdbd;
+    border-right: 1px solid #bdbdbd;
+}
+
+#conver #defualt {
+	margin-top: 110px;
+	color: #6EB6F0;
+	font-weight: bolder;
+	font-size: 60px;
+	text-align: center;
+}
+
+/* CSS talk bubble */
+.talk-bubble {
+    margin: 20px 100px 5px 10px;
+    display: inline-block;
+    position: relative;
+    width: 300px;
+    height: auto;
+    background-color: #EEEEEE;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.talk-bubblet {
+    margin: 20px 0px 5px 100px;
+    display: inline-block;
+    position: relative;
+    width: 300px;
+    height: auto;
+    background-color: #6EB6F0;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+/* talk bubble contents */
+.talktext{
+    padding: 1em;
+    text-align: left;
+    line-height: 1.5em;
+}
+.talktext p{
+    /* remove webkit p margins */
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+}
+
+.textme{float: right;}
+
+.time {
+    font-size: 14px;
+    margin-left: 175px;
+}
+
+.timeme {
+    font-size: 14px;
+    margin-left: 120px;
+}
+
+/*입력창*/
+#text {
+    float: left;
+    width: 750px;
+    height: 130px;
+    border-bottom: 1px solid #bdbdbd;
+    border-left: 1px solid #bdbdbd;
+    border-right: 1px solid #bdbdbd;
+}
+
+#insert {
+    float: left;
+    padding-top: 10px;
+    width: 500px;
+    height: 100px;
+    border: none;
+    margin : 15px 30px 0px 30px;
+    display : block;
+    resize: none;
+}
+
+/*버튼*/
+
+.btn-send {
+	background-color: #6EB6F0;
+    margin: 35px 0px 0px 50px;
+    padding: 10px 20px 10px 20px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.btn-send:hover {
+	background-color: #6EB6F0;
+	color: #ffffff;
+}
+
+ 
+#approval {
+    margin: 0px 5px 0px 0px;
+}

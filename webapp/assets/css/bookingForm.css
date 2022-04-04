@@ -1,0 +1,99 @@
+@charset "UTF-8";
+/******************************************
+초기화 관련
+******************************************/
+
+/*여백 초기화*/
+body, div, ul, li, dl, dt, ol, td, h2, h3, h4, h5, h6,
+input, fieldset, legend, p, select, table, th, td, tr,
+textarea, button, form {margin:0; padding:0;}
+
+body {font-family: 'Noto Sans KR', sans-serif; color: #333; background-color: #fff !important;}
+
+ul, ol {list-style-type: none;}
+a{color: #000 !important}
+a:link {text-decoration: none; color: #000}
+a:visited {text-decoration: none; color: #000}
+a:active {text-decoration: none; color: #000}
+a:hover {text-decoration: none; color: #000}
+
+/* clearfix */
+.clearfix{*zoom:1;}
+.clearfix:before, .clearfix:after {display: block; content: ""; line-height: 0;}
+.clearfix:after {clear: both;}
+
+.color {
+    background-color:#3D9BE9;
+}
+/* 공통 레이아웃*/
+#wrap {margin: 0px auto; 
+       width: 1440px;}
+#container { width: 1440px;}
+#aside {float: left; width: 360px; padding: 0px 0px 0px 0px;}
+#content { float: left; width: 1080px; margin: 0px 0px 100px 0px;}
+
+/* 컨테이너 */
+#booking{
+    margin: 20px 50px 0px 0px;
+    padding: 0px 50px 50px 50px;
+}
+#l-calendar{
+    margin:0px 0px 0px 70px;
+}
+    #container #btn1{
+        margin: 10px 0px 0px 0px;
+        width: 176.352942943573px;
+        height: 50px;
+    }
+    #container #btn2{
+        height: 50px;
+    }
+    
+#booking .Q{
+    padding: 30px 0px 30px 0px;
+    margin: 0px 0px 0px 0px;
+}
+#hostprofile{
+    margin: 120px 0px 0px 0px;
+    padding: 10px 40px 10px 40px;
+    border:1px solid #DDD;
+    border-radius: 10px;
+}
+    #profile{
+        border-bottom: 1px solid #DDD;
+        padding : 20px 25px 30px 25px;
+    }
+        #hostimg{
+            float: right;
+            margin: 25px 0px 0px 0px;
+            width: 100px;
+        }
+    #checkbox{
+        padding: 20px 10px 30px 10px;
+    }
+        #check{
+            margin:0px 100px 0px 20px;
+        }
+        #check2{
+            margin:0px 0px 0px 0px;
+            padding: 0px 0px 0px 0px;
+            text-align: right;
+        }
+        #checkbox p{
+            margin: 0px 0px 0px 80px;
+        }
+#btn2 {
+    margin: 20px 0px 0px 100px;
+    width: 226.352942943573px;
+    background-color: #3D9BE9;
+    
+}
+.fc-daygrid-day {
+	background-color: #eee;
+}
+.disabled{
+	text-decoration:line-through
+}
+a {
+	color: #333;
+}

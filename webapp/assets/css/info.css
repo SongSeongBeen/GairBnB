@@ -1,0 +1,294 @@
+@charset "UTF-8";
+/******************************************
+초기화 관련
+******************************************/
+
+/*여백 초기화*/
+body, div, ul, li, dl, dt, ol, td, h2, h3, h4, h5, h6,
+input, fieldset, legend, p, select, table, th, td, tr,
+textarea, button, form {margin:0; padding:0;}
+
+body {font-family: 'Noto Sans KR', sans-serif; color: #333; background-color: #fff !important;}
+
+ul, ol {list-style-type: none;}
+a:link {text-decoration: none; color: #000}
+a:visited {text-decoration: none; color: #000}
+a:active {text-decoration: none; color: #000}
+a:hover {text-decoration: none; color: #000}
+
+/* clearfix */
+.clearfix{*zoom:1;}
+.clearfix:before, .clearfix:after {display: block; content: ""; line-height: 0;}
+.clearfix:after {clear: both;}
+
+/* 공통 레이아웃*/
+#wrap {margin: 0px auto; 
+       width: 1440px;}		
+#container { width: 1440px;}
+#aside {float: left; width: 360px; padding: 0px 0px 0px 0px;}
+#content { float: left; width: 1080px; margin: 0px 0px 100px 0px;}
+
+/** 1. 호스트정보 **/
+	#container .row1{
+		margin: 0px 0px 50px 0px;
+	}
+	#container #profile{
+		padding: 20px 60px 50px 70px;
+		border-bottom: 1px solid #DDD;
+	}
+	#container #hostimg{
+		width:300px;
+		height:300px;
+		margin:15px 30px 20px 5px;
+	}
+	#hostimgbox{
+		width: 400px;
+		height: 300px;
+	}
+	#container #hostinfo{
+		margin: 20px 0px 0px 0px;
+		padding: 0px 0px 0px 50px;
+		height: 60px;
+		width: 850px;
+	}
+	#container #hostinfo .info{
+		margin: 0px 0px 15px 0px;
+	}
+	#infobox {
+		padding: 10px 0px 10px 0px;
+	}
+	#tagbox {
+	height: 50px;
+	}
+	.tag{
+		display: inline-block;
+		padding: .2em .6em .3em;
+		margin: 0px 2px 0px 0px;
+		font-size: 12px;
+		font-weight: bold;
+		line-height: 1;
+		color: #666;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: baseline;
+		border-radius: .25em;
+		background-color: #FFF;
+		border:1px solid #666;
+	}
+	.tag:hover{
+		background-color: #DDD;
+	}
+	#container #btnbox1{
+		margin: 10px 0px 0px 0px;
+	}
+	#container #btnbox1 #btn1{
+		margin: 10px 0px 0px 0px;
+		padding: 13px 0px 0px 0px;
+		width: 200px;
+		height: 50px;
+	}
+	#container #btnbox1 #btn2{
+		margin: 10px 0px 0px 0px;
+		padding: 13px 0px 0px 0px;
+		width: 200px;
+		height: 50px;
+	}
+	#container #btnbox1 #btn3{
+		margin: 10px 0px 0px 0px;
+		padding: 13px 0px 0px 0px;
+		height: 50px;
+		width: 50px;
+	}
+	.color {
+		background-color: #3D9BE9;
+	}
+	.color2 {
+		color: #3D9BE9;
+	}
+	a {
+		color: #333;
+	}
+	#btn3 {
+		display: inline-block;
+		border: 1px solid #BBB;
+		padding: 0px !important;
+	}
+	#btn3 span{
+		color: #FF5555;
+	}
+/** 2. 퍼피력 **/
+#container #puppypoint{
+	text-align:left;
+	margin: 0px 0px 0px 0px;
+	padding: 15px 0px 10px 60px;
+	border: 1px solid #DDD;
+	border-radius: 10px;
+	width: 477px;
+	height: 460px;
+}
+#container #point{
+	margin: 30px 25px 0px 0px;
+	text-align: center;
+}
+	#container #point div h4{
+		margin: 0px 0px 0px 0px;
+	}
+	#container #point .normal{
+		font-weight: 1000;
+		margin : 0px 40px 0px 0px;
+	}
+	.pointname{
+		padding: 0px;
+	}
+#container #graph{
+	padding: 30px 0px;
+}
+#container .progress{
+	width: 290px;
+	height: 23px;
+}
+.bar {
+	padding: 20px 0px 0px 0px;
+}
+.progress-bar{
+	background: #777;
+	
+}
+.top-bar{
+	background-color:#3D9BE9;
+}
+.warning-bar{
+	background-color:#d9534f;
+}
+/** 3. 사진 **/
+#container #picbox {
+	height: 500px;
+	margin: 0px 0px 0px 50px;
+	padding: 0px 0px 0px 0px;
+}
+#picbox #tapbox ul li a{
+	height: 42.352941036224365px;
+}
+#container #imgbox {
+	border: 1px solid #EEE;
+	border-top: 0px;
+	border-radius:5px;
+	padding: 10px 19px 10px 19px;
+	height: 411.1764705181122px;
+}
+#picbox img{
+	width: 200px;
+	height: 180px;
+	margin: 10px 0px 0px 0px;
+}
+#picbox img:hover{
+	border: 5px solid #3D9BE9;
+}
+#tapbox .nav{
+	height:41px;
+}
+#imgbox2{
+	margin: 0px 0px 10px 15px;
+}
+/**4. 캘린더**/
+#calendar{
+	padding: 0px 0px 0px 20px;
+}
+#calendar>h3{
+	display: inline-block;
+	margin: 10px 0px 15px 0px;
+}
+.fc-daygrid-day {
+	background-color: #eee;
+}
+#ablediv{
+	display: inline-block;
+	margin: 3px 0px 0px 0px;
+	width: 30px;
+	height: 20px;
+	border:1px solid #777;
+	background-color:#FFF;
+}
+#disablediv{
+	display: inline-block;
+	margin: 3px 0px 0px 0px;
+	width: 30px;
+	height: 20px;
+	border:1px solid #777;
+	background-color:#eee;
+}
+.inlineblock{
+	display: inline-block;
+}
+#calendarinfo{
+	margin: 10px 0px 0px 0px;
+	padding: 0px 0px 0px 170px;
+}
+/**5. 리뷰**/
+#review{
+    padding: 10px 55px 0px 35px;
+    margin: 0px 40px 0px 30px;
+    height: 1000px;
+    border: 1px solid #EEE;
+    border-radius : 5px;
+	
+}
+	#review>h3, h4{
+		display: inline-block;
+		margin: 15px 10px 15px 0px;
+	}
+	.reviewList {
+		text-align:left;
+		width: 850px;
+		margin:10px 0px 10px 0px;
+		padding: 10px 0px 0px 0px;
+		
+		padding-bottom: 20px;
+	}
+	#reviewbox h3{
+		margin: 15px 0px 15px 0px;
+	}
+	.reviewList .row h4{
+		margin: 5px 0px 0px 0px;
+	}
+	.reviewList .row .toph4{
+		margin: 1px 0px 0px 0px;
+	}
+	.reviewList .row p{
+		margin: 5px 0px 0px 0px;
+	}
+	.reviewList img {
+		float: left;
+		margin: 0px 10px 0px 0px;
+	}
+	.reviewimg {
+		width:50px;
+	}
+	.reviewbox {
+		width: 800px;
+		margin-bottom:5px;
+		border-bottom:1px solid #DDD;
+	}
+	.reviewbox div {
+		margin-top:10px;
+	}
+
+	.reviewbox{
+		padding: 0px 0px 10px 25px;
+	}
+	#paging{
+		text-align: center;
+  		margin: 0;
+  		padding: 0;
+	}
+/**6. 지도**/
+#maparea {
+	padding: 30px 0px 0px 35px;
+}
+#maparea h2, h4 {
+	margin: 0px 0px 20px 0px;
+}
+
+#l-calendar{
+	height:432px;
+}

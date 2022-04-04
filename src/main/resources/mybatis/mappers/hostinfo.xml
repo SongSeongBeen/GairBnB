@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hostinfo">
+	<select id="checkNo" parameterType="int" resultType="int">
+		<![CDATA[
+			select  hostNo
+			from    host
+			where	hostNo = #{hostNo}
+		]]>
+	</select>
+	
+	<select id="getHost" parameterType="int" resultType="HostVo">
+		<![CDATA[
+			select ho.hostNo,
+			       ho.usersNo,
+			       us.name,
+			       us.hp,
+			       us.path,
+			       ho.zipcode,
+			       ho.adress1,
+			       ho.adress2,
+			       ho.adress3,
+			       ho.intro,
+			       ho.asking,
+			       ho.hostcost,
+			       to_char(ho.hostcost, '999,999,999') stringcost,
+			       co.reviewcount,
+			       ho.hostview
+			from   users us, host ho, (select count(review) reviewcount
+                              		   from   booking
+                              		   where  hostNo = #{hostNo}) co
+			where  hostNo = #{hostNo}
+            and    us.usersNo = ho.usersNo
+		]]>
+	</select>
+	
+	<select id="getKeywordList" parameterType="int" resultType="KeywordVo">
+		<![CDATA[
+			select   hk.hostNo,
+			         ke.keywordName
+			from     hostkeyword hk, keyword ke
+			where    hk.keywordNo = ke.keywordNo
+			and      hk.hostNo = #{hostNo}
+			order by ke.keywordno asc
+		]]>
+	</select>
+	
+	<select id="getReview" parameterType="map" resultType="ReviewVo">
+		<![CDATA[
+			select  rt.rn,
+					rt.bookingNo,
+			        rt.usersNo,
+			        rt.name,
+			        rt.path,
+			        rt.review,
+			        rt.reviewDate
+			from    (select rownum rn,
+							ot.bookingNo,
+			                ot.usersNo,
+			                ot.name,
+			                ot.path,
+			                ot.review,
+			                ot.reviewDate
+			        from    (select bo.bookingNo,
+                                    us.usersno,
+                                    us.name,
+                                    us.path,
+                                    bo.review,
+                                    to_char(bo.reviewDate, 'YYYY-MM-DD') reviewDate
+                             from   booking bo, users us
+                             where  bo.usersNo = us.usersNo
+                             and    bo.hostNo = #{hostNo}
+                             and    bo.status = '시팅완료'
+                             order by bo.reviewdate desc
+                             )ot
+                    )rt
+			where rn >= #{startRnum}
+			and   rn <= #{endRnum}
+		]]>
+	</select>
+	
+	<select id="getPuppypoint" parameterType="int" resultType="double">
+		<![CDATA[
+			select (NVL(avg(clean), 0) + NVL(avg(food), 0) + NVL(avg(play), 0) + NVL(avg(walk), 0) + NVL(avg(communication), 0))/5
+			from   booking
+			where  hostNo = #{hostNo}
+		]]>
+	</select>
+	
+	<select id="getReviewCount" parameterType="int" resultType="int">
+		<![CDATA[
+			select count(review)
+			from   booking
+			where  hostNo = #{hostNo}
+		]]>
+	</select>
+	
+	<select id="getPoint" parameterType="int" resultType="ReviewVo">
+		<![CDATA[
+			select NVL(avg(clean), 0) clean,
+				   NVL(avg(food), 0) food,
+				   NVL(avg(play), 0) play,
+				   NVL(avg(walk), 0) walk,
+				   NVL(avg(communication), 0) communication
+			from   booking
+			where  hostNo = #{hostNo}
+		]]>
+	</select>
+	
+	<select id="getHostPhotoList" parameterType="int" resultType="PhotoVo">
+		<![CDATA[
+			select hostNo,
+			       hostprofilepath saveName
+			from   hostprofile
+			where  hostNo = #{hostNo}
+		]]>
+	</select>
+	
+	<select id="getCalendur" parameterType="int" resultType="BookingVo">
+		<![CDATA[
+			select  bo.checkin,
+			        bo.checkout,
+			        us.name guestName
+			from    booking bo, users us
+			where   hostNo = #{hostNo}
+			and     bo.usersNo = us.usersNo
+		]]>
+	</select>
+	
+	<select id="getPhoto" parameterType="PhotoVo" resultType="PhotoVo">
+		<![CDATA[
+			select ph.saveName saveName,
+			       bo.hostNo
+			from   photo ph, booking bo
+			where  ph.bookingNo = bo.bookingNo
+			and    bo.hostNo = #{hostNo}
+			and    ph.category = #{category}
+		]]>
+	</select>
+	
+	<select id="getKeywordList2" resultType="keywordVo">
+		<![CDATA[
+			select   keywordNo,
+			         keywordName
+			from     keyword
+			order by keywordNo asc
+		]]>
+	</select>
+	
+	<select id="getPayment" parameterType="int" resultType="BookingVo">
+		<![CDATA[
+			select bookingNo,
+				   hostNo,
+			       to_char(checkin, 'YYYY-MM-DD') checkin,
+			       to_char(checkout, 'YYYY-MM-DD') checkout,
+			       ea,
+			       bookingDate,
+			       days,
+			       note
+			from   booking
+			where  bookingNo = #{bookingNo}
+		]]>
+	</select>
+	
+	<select id="getAbleDate" parameterType="int" resultType="String">
+		<![CDATA[
+            select   s.today ableDate
+			from     (select     to_char (firstday + level - 1, 'yyyy-mm-dd') today
+	                  from       (select sysdate firstday 
+	                              from   dual) 
+	                  connect by firstday + level - 1 <= trunc(sysdate+30)) s
+			where not s.today in (select abledate
+	                              from   able
+	                              where  hostNo= #{hostNo})    
+			order by  s.today asc
+		]]>
+	</select>
+	
+	<select id="getHeart" parameterType="HeartVo" resultType="int">
+		<![CDATA[
+			select heartNo
+			from   heart
+			where  usersNo = #{usersNo}
+			and    hostNo = #{hostNo}
+		]]>
+	</select>
+	
+	<select id="bookingList" parameterType="int" resultType="BookingVo">
+		<![CDATA[
+			select to_char(checkin, 'yyyy-mm-dd') checkin,
+			       to_char(checkout, 'yyyy-mm-dd') checkout
+			from   booking
+			where  hostNo = #{hostNo}
+			and    status in('예약완료', '펫시팅중', '시팅완료')
+			and    checkin > sysdate
+            and    checkout > sysdate
+		]]>
+	</select>
+	
+	<insert id="hostinsert" parameterType="hostVo">
+		<selectKey keyProperty="hostNo" resultType="int" order="BEFORE">
+			select seq_host_no.nextval from dual
+		</selectKey>
+		<![CDATA[
+			insert into host
+			values(#{hostNo}, #{usersNo}, #{zipcode}, #{adress1}, #{adress2}, #{adress3}, 0, 0, #{intro}, #{asking}, #{hostcost}, 0)
+		]]>
+	</insert>
+	
+	<insert id="bookinginsert" parameterType="BookingVo">
+		<![CDATA[
+			insert into booking
+			values(seq_booking_no.nextval, #{hostNo}, #{usersNo}, #{checkin}, #{checkout}, #{ea}, #{bookingDate}, #{days}, #{note}, '승인대기', null, null, null, null, null, null, null)
+		]]>
+	</insert>
+	
+	<insert id="setHostPhoto" parameterType="PhotoVo">
+		<![CDATA[
+			insert into hostprofile
+			values(seq_hostprofile_no.nextval,#{hostNo}, sysdate, #{photoPath})
+		]]>
+	</insert>
+	
+	<insert id="setKeyword" parameterType="KeywordVo">
+		<![CDATA[
+			insert into hostkeyword
+			values(seq_hostkeyword_no.nextval, #{hostNo}, #{keywordNo})
+		]]>
+	</insert>
+	
+	<insert id="heartinsert" parameterType="HeartVo">
+		<![CDATA[
+			insert into heart
+			values(seq_heart_no.nextval, #{usersNo}, #{hostNo})
+		]]>
+	</insert>
+	
+	<delete id="heartdelete" parameterType="HeartVo">
+		<![CDATA[
+			delete heart
+			where  hostNo = #{hostNo}
+			and    usersNo = #{usersNo}
+		]]>
+	</delete>
+	
+	<update id="setStatus" parameterType="BookingVo">
+		<![CDATA[
+			update booking
+			set    status = #{status}
+			where  bookingNo = #{bookingNo}
+		]]>
+	</update>
+	
+	<update id="setTypeHost" parameterType="int">
+		<![CDATA[
+			update users
+			set    userstype = 2
+			where  usersNo = #{usersNo}
+		]]>
+	</update>
+	
+	<update id="hostUpdate" parameterType="HostVo">
+		<![CDATA[
+			update host
+			set    zipcode = #{zipcode},
+			       adress1 = #{adress1},
+			       adress2 = #{adress2},
+			       adress3 = #{adress3},
+			       intro = #{intro},
+			       asking = #{asking},
+			       hostcost = #{hostcost}
+			where  hostNo = #{hostNo}
+		]]>
+	</update>
+
+
+</mapper>

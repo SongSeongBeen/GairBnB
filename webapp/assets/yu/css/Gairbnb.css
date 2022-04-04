@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+/* 여백 초기화 */
+body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset,
+	legend, p, select, table, th, td, tr, textarea, button, form {
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol {
+	list-style:none;
+}
+
+/* 공통 적용 */
+body {
+	padding-top: 80px;
+	font-family: "맑은 고딕";
+	font-size: 16px;
+}
+
+/* 레이아웃 */
+#wrap {
+	margin: 0px auto;
+	width: 1440px;
+}
+
+#container {
+	width: 1440px;
+}
+
+#aside {
+	float: left;
+	width: 240px;
+	padding: 0px 0px 0px 0px;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+#content {
+	float: left;
+	width: 1200px;
+	margin: 0px 0px 100px 0px;
+}
+
+/* 헤더 */
+#header{
+	width: 1920px;
+	margin: 0px auto;
+    height: 80px;
+    border-bottom: 1px solid #BBB;
+	z-index: 1;
+	background-color: #ffffff;
+	position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+}
+#header #logo {
+float:center;
+}
+#header #logo img {
+width: 140px;
+margin: 0px 0px 0px 60px;
+padding: 10px 0px 0px 0px;
+}
+#header #logo h4 {
+	color:#000;
+	font-size:35px;
+}
+#header #search {
+	padding: 15px 40px 0px 170px;
+	float:center;
+}
+	#header #search img{
+		height: 50px;
+	}
+	#header #menu {
+		float: center;
+		line-height: 30px;
+		margin: 0px 0px 0px 400px;
+		padding: 25px 0px 0px 50px;
+		color:#000;
+		font-size: 16px;
+	}
+#header #menu span {
+	margin: 0px 0px 0px 10px;
+}
+#header #menu p{
+	display: inline-block;
+	padding: 0px 0px 0px 15px;
+	margin: 20px 0px 0px 15px;
+}
+
+/* 왼쪽메뉴(aside) */
+#aside #b-aside {
+	padding: 45px 0px 0px 0px;
+	width: 240px;
+}
+
+#aside>#b-aside {
+	margin: 0px 0px 0px 0px;
+}
+
+.aside-img {
+	width: 30px;
+	margin: 0px 0px 0px 125px;
+	vertical-align: middle;
+}
+
+#aside #b-aside>li {
+	padding-left: 10px;
+	display: block;
+	line-height: 60px;
+	height: 60px;
+}
+
+#aside #b-aside>ul>li {
+	padding: 20px 0px 20px 30px;
+	text-align: left;
+	background-color: #eeeeee;
+}
+
+#aside #b-aside>#s-aside>ul>li:hover {
+	background-color: #eeeeee;
+}
+
+.hide {
+	display: none;
+}
+
+/* 메인컨텐츠(content) */
+#content-head {
+	margin: 45px 0px 30px 30px;
+}
+
+#content-head h1 {
+	height: 40px;
+	line-height: 30px;
+	margin: 3px 0px 3px 0px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#content-head #location {
+	display: inline-block;
+	margin: 25px 0px 0px 0px;
+	font-size: 12px;
+}
+
+#content-head #location ul>li {
+	float: left;
+}
+
+#content-head #location ul>li:after {
+	content: ">";
+	margin: 0px 5px 0px 5px;
+}
+
+#content-head #location ul>li.last:after {
+	content: none;
+}
+
+#content-main {
+	margin: 0px 0px 0px 30px;
+}
+
+/* 클리어픽스 */
+.clearfix {
+	*zoom: 1;
+}
+
+.clearfix:before, .clearfix:after {
+	display: block;
+	content: "";
+	line-height: 0;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/**/

@@ -1,0 +1,228 @@
+@charset "UTF-8";
+/******************************************
+초기화 관련
+******************************************/
+
+/*여백 초기화*/
+body, div, ul, li, dl, dt, ol, ht, h2, h3, h4, h5, h6,
+input, fieldset, legend, p, select, table, th, td, tr,
+textarea, button, form {margin:0; padding:0;}
+
+body {font-family: 'Noto Sans KR', sans-serif; color: #333; background-color: #fff !important;}
+
+ul, ol {list-style-type: none;}
+a:link {text-decoration: none; color: #000}
+a:visited {text-decoration: none; color: #000}
+a:active {text-decoration: none; color: #000}
+a:hover {text-decoration: none; color: #000}
+
+/* clearfix */
+.clearfix{*zoom:1;}
+.clearfix:before, .clearfix:after {display: block; content: ""; line-height: 0;}
+.clearfix:after {clear: both;}
+
+/* 레이아웃 관련 */
+#wrap {margin: 0px auto; width: 1440px;}
+
+#container { width: 1440px;}
+
+#aside {
+	float: left;
+	width: 240px;
+	padding: 0px 0px 0px 0px;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+#content {
+	float: left;
+	width: 1200px;
+	margin: 0px 0px 100px 0px;
+}
+
+/* 왼쪽메뉴(aside) */
+#aside:hover {
+	cursor: pointer;
+}
+
+#aside #b-aside {
+	padding: 45px 0px 0px 0px;
+	width: 240px;
+}
+
+#aside>#b-aside {
+	margin: 0px 0px 0px 0px;
+}
+
+.aside-img {
+	width: 30px;
+	margin: 0px 0px 0px 125px;
+	vertical-align: middle;
+}
+
+#aside #b-aside>li {
+	padding-left: 10px;
+	display: block;
+	line-height: 60px;
+	height: 60px;
+}
+
+#aside #b-aside>ul>li {
+	padding: 20px 0px 20px 30px;
+	text-align: left;
+	background-color: #eeeeee;
+}
+
+#aside #b-aside>#s-aside>ul>li:hover {
+	background-color: #eeeeee;
+}
+
+.hide {
+	display: none;
+}
+
+/* 메인컨텐츠(content) */
+#content-head {
+	margin: 45px 0px 30px 30px;
+}
+
+#content-head h1 {
+	height: 40px;
+	line-height: 30px;
+	margin: 3px 0px 3px 0px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#content-head #location {
+	display: inline-block;
+	margin: 25px 0px 0px 0px;
+	font-size: 12px;
+}
+
+#content-head #location ul>li {
+	float: left;
+}
+
+#content-head #location ul>li:after {
+	content: ">";
+	margin: 0px 5px 0px 5px;
+}
+
+#content-head #location ul>li.last:after {
+	content: none;
+}
+
+#content-main {
+	margin: 0px 0px 0px 30px;
+}
+
+/* 클리어픽스 */
+.clearfix {
+	*zoom: 1;
+}
+
+.clearfix:before, .clearfix:after {
+	display: block;
+	content: "";
+	line-height: 0;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/**/
+.exp{
+	font-size: 16px;
+	display: inline-block;
+	margin: 8px 0px 15px 15px;
+	color: #777;
+}
+.list {
+  text-align: left;
+  padding: 50px 300px 30px 300px; 
+  font-size: 23px;  
+}
+
+/****************************************************************/
+/* 게시판 글쓰기 ************************************************/
+/****************************************************************/
+#board #writeForm {
+	text-align: left;
+	margin: 0px 200px 0px 40px;
+}
+
+/* 폼태그 라벨 */
+#board #writeForm .form-group .form-text {
+    display: inline-block;  /* 인라인 요소 가로폭을 주려고 */
+    width: 100px;
+    text-align: left;
+    margin-right: 20px;
+}
+/* 필수 태그 */
+#board #writeForm .form-group .label-danger {
+    padding: 1px 5px 1px 5px;
+}
+/* 폼태그(상품명) */
+#board #writeForm .form-group #txt-title {
+    width: 400px;
+}
+/* 폼태그(가격) */
+#board #writeForm .form-group #txt-cost {
+    width: 300px;
+}
+/* 폼태그(카테고리) */
+#board #writeForm .form-group #txt-category {
+    width: 300px;
+}
+/* 폼태그(재고) */
+#board #writeForm .form-group #txt-ea {
+    width: 300px;
+}
+/* 폼태그(이미지) */
+#board #writeForm .form-group #txt-image {
+	display: inline-block;
+    width: 300px;
+}
+/* 폼태그(요약설명) */
+#board #writeForm .form-group #txt-info {
+	vertical-align: top;
+    width: 761px;
+}
+
+/* 폼태그(내용) */
+#board #writeForm .form-group #txt-info {
+	display: inline-block;
+    width: 816px;
+    height: 250px;
+}
+
+/* 등록 버튼 */
+#board #writeForm #btn_add {
+	border: 1px solid #A6A6A6;
+	border-radius: 2px;
+	background-color: #E5E5E5;
+	padding: 5px 20px 5px 20px;
+	margin: 0px 0px 0px 10px;
+	font-size: 14px;
+	float: right;
+	cursor: pointer;
+	
+}
+
+/* 취소 버튼 */
+#board #writeForm #btn_cancel {
+	border: 1px solid #A6A6A6;
+	border-radius: 2px;
+	background-color: #E5E5E5;
+	padding: 5px 20px 5px 20px;
+	margin: 0px 0px 0px 10px;
+	font-size: 14px;
+	float: right;
+	cursor: pointer;
+}
+
+

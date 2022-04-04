@@ -1,0 +1,329 @@
+@charset "UTF-8";
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 80px;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid #bbb;
+}
+
+.header .flexBox {
+  display: flex;
+  color: #fff;
+  text-align: center;
+  background: #ff0;
+}
+
+.header .flexBox2 {
+  display: flex;
+  width: 600px;
+  height: 500px;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  background: #ff0;
+}
+
+.header .flexBox3 {
+  display: flex;
+  width: 600px;
+  height: 200px;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  background: #ff0;
+}
+
+.header .item {
+  color: #555;
+}
+.header .item2 {
+  width: 200px;
+  background: #555;
+}
+
+.header .item3 {
+  width: 200px;
+  height: 40px;
+  background: #555;
+}
+
+.header .item4 {
+  width: 200px;
+  height: 40px;
+  background: #555;
+}
+
+/* flex Options*/
+/* flex-direction */
+.header .flex-direction_row {
+  flex-direction: row; /*default*/
+}
+.header .flex-direction_row-reverse {
+  flex-direction: row-reverse;
+}
+.header .flex-direction_column {
+  flex-direction: column;
+}
+.header .flex-direction_column-reverse {
+  flex-direction: column-reverse;
+}
+
+/* flex-wrap */
+.header .flex-wrap_nowrap {
+  flex-wrap: nowrap; /*default*/
+}
+.header .flex-wrap_wrap {
+  flex-wrap: wrap;
+}
+.header .flex-wrap_wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+/* justify-content */
+.header .justify-content_flex-start {
+  justify-content: flex-start; /*default*/
+}
+.header .justify-content_center {
+  justify-content: center;
+}
+.header .justify-content_flex-end {
+  justify-content: flex-end;
+}
+.header .justify-content_space-around {
+  justify-content: space-around;
+}
+.header .justify-content_space-between {
+  justify-content: space-between;
+}
+
+/* align-items */
+.header .align-items_stretch {
+  align-items: stretch; /*default*/
+}
+.header .align-items_flex-start {
+  align-items: flex-start;
+}
+.header .align-items_center {
+  align-items: center;
+}
+.header .align-items_flex-end {
+  align-items: flex-end;
+}
+.header .align-items_baseline {
+  align-items: baseline;
+}
+
+/* align-content */
+.header .align-content_stretch {
+  align-content: stretch; /*default*/
+}
+.header .align-content_flex-start {
+  align-content: flex-start;
+}
+.header .align-content_center {
+  align-content: center;
+}
+.header .align-content_flex-end {
+  align-content: flex-end;
+}
+.header .align-content_space-around {
+  align-content: space-around;
+}
+.header .align-content_space-between {
+  align-content: space-between;
+}
+
+/* flexBox > div.item Options */
+/* flex: 1; */
+.header .flex_1 {
+  flex: 1;
+}
+
+/* flex: auto; */
+.header .flex_auto {
+  flex: auto;
+}
+
+/* flex: 0 1 random%; */
+.header .flex_0_1_10per {
+  flex: 0 1 10%;
+}
+.header .flex_0_1_60per {
+  flex: 0 1 60%;
+}
+.header .flex_0_1_30per {
+  flex: 0 1 30%;
+}
+
+/* flex: 0 0 randomPX; */
+.header .flex_0_0_50px {
+  flex: 0 0 50px;
+}
+.header .flex_0_0_100px {
+  flex: 0 0 100px;
+}
+.header .flex_0_0_100px {
+  flex: 0 0 150px;
+}
+.header .flex_0_0_200px {
+  flex: 0 0 200px;
+}
+.header .flex_0_0_300px {
+  flex: 0 0 300px;
+}
+.header .flex_0_0_500px {
+  flex: 0 0 500px;
+}
+
+/* order */
+.header .order_1 {
+  order: 1;
+}
+.header .order_2 {
+  order: 2;
+}
+.header .order_3 {
+  order: 3;
+}
+
+
+
+.header .width100 {
+  width: 100%;
+}
+
+.header .logo {
+  text-align: left;
+  flex: 0 0 10%;
+  height: 50px;
+}
+
+.header .logo-img {
+  width: 150px;
+  height: 50px;
+}
+
+.header .searchbox {
+  flex: 0 0 65%;
+  text-align: center;
+  height: 50%;
+  padding-left: 150px;
+  margin-bottom: 4px;
+}
+
+.header .searchboxin_1 {
+  width: 202px;
+  border: 1px solid #bbb;
+  height: 45px;
+  border-radius: 3px;
+}
+
+.header .search_text1 {
+  height: 42px;
+  text-align: center;
+  border: 0px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  color: #181818;
+}
+
+.header .searchboxin_2 {
+  width: 200px;
+  height: 45px;
+
+}
+
+#litepickerRangePlugin{
+	  width: 200px;
+	  height: 45px;
+	  border-radius: 3px;
+}
+
+.header .search_text2 {
+  width: 200px;
+  height: 45px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  padding: 2px 2px 2px 2px;
+}
+
+.header .search_text3 {
+  border: 1px solid #bbb;
+  height: 44.5px;
+  text-align: center;
+  background-color: rgb(61, 155, 233);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.header .menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: right;
+  flex: 0 0 20%;
+  height: 50px;
+}
+
+.header .menu_btn1 {
+  margin: 0;
+  flex: 0 0 20%;
+}
+
+.header .btn1_text {
+  padding: 8px 5px 8px 5px;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: rgb(61, 155, 233);
+  border: 0px;
+  color: #ffffff;
+}
+
+.header .menu_btn1 {
+  margin: 2px 5px 2px 5px;
+  flex: 0 0 20%;
+  height: 35px;
+}
+
+.header .menu_btn2 {
+  margin: 2px 5px 2px 5px;
+  flex: 0 0 20%;
+  height: 35px;
+}
+
+.header .menu_btn2 a {
+  color: #181818;
+}
+
+.header .menu_btn2 a:hover {
+  text-decoration: none;
+}
+
+.header .menu_btn3 {
+  margin: -2px 5px 2px 5px;
+  flex: 0 0 20%;
+  height: 30px;
+}
+
+.header .menu_text3 {
+  height: 33px;
+}
+
+.header .glyphicon {
+  width: 20px;
+  height: 20px;
+}
+
+.header .dropdown-menu{
+	margin-right: 30px;
+	margin-top: 20px;
+}
+
+.litepicker{
+	top: 80px !important;
+	left: 550px !important;
+}

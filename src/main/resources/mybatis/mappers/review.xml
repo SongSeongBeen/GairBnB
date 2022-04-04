@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="review">
+	
+	<!-- 쿼리문 작성 -->
+	<update id="updateReview" parameterType="com.javaex.vo.UserVo" >
+		<![CDATA[
+			update booking
+			set 
+			    clean = #{clean},
+			    food = #{food},
+			    play= #{play},
+			    walk= #{walk},
+			    communication= #{communication},
+			    review = #{review},
+			    reviewDate = sysdate
+			WHERE bookingno =#{bookingNo}
+		
+		]]>
+	</update>
+	
+	<!-- 시팅완료로 상태바꾸기 -->
+	<update id="updateStatus3" parameterType="int">
+		<![CDATA[
+			update booking
+			set	   status = '시팅완료'
+			where  bookingNo = #{bookingNo}
+		]]>
+	</update>
+
+</mapper>

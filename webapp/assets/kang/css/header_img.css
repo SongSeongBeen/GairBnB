@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+#header .header_img{
+    width: 1440px;
+    height: 129px;
+}
+
+#header_line{
+    border-top: 1px solid #bbb;
+} 

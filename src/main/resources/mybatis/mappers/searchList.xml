@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="searchList">
+		
+			<select id="selectSearchList" parameterType="SearchListVo" resultType="SearchListVo">
+					<![CDATA[
+					  select    h.hostNo hostNo,
+						        u.name hostName,
+						        u.path path,
+						        h.hostView hostView,
+						        h.adress1 adress1,
+						        h.adress3 adress3,
+						        c.rp reviewPoint,
+						        h.hostCost hostCost,
+						        trunc(c.pp,1) puppyPoint,
+						        trunc(c.clean,1) clean,
+						        trunc(c.walk,1) walk,
+						        trunc(c.play,1) play,
+						        trunc(c.food,1) food,
+						        trunc(c.communication,1) communication,
+						        c.rp review
+						from    users u, host h, (select     h.hostNo, 
+						                                     count(review) rp,
+						                                     ((avg(clean) + avg(walk) + avg(play) + avg(food) + avg(communication))/5) pp,
+						                                     avg(clean) clean,
+						                                     avg(walk) walk,
+						                                     avg(play) play,
+						                                     avg(food) food,
+						                                     avg(communication) communication        
+						                          from       booking b, users u, host h
+						                          where      b.hostNo(+) = h.hostNo
+						                          and        h.usersNo = u.usersNo
+						                          group by   h.hostNo ) c, (select    h.hostno
+						                                                     from      able a, host h, booking b
+						                                                     where     a.abledate between #{checkin} and #{checkout}
+						                                                     and not   checkin between #{checkin}  and #{checkout}
+						                                                     and not   checkout between #{checkin}  and #{checkout}
+						                                                     and       a.hostNo = h.hostNo
+						                                                     and       h.hostNo = b.hostNo
+						                                                     group by  h.hostno) a
+						where u.usersNo = h.usersNo
+						and   c.hostNo = h.hostNo
+						and   a.hostNo = h.hostNo
+						and hostView = 1]]> 
+					    <include refid="search"></include>
+					    <choose>
+							  <when test="orderType == null">
+								  order by hostNo desc
+							  </when>
+							  <when test="orderType == 1">
+								  order by clean desc
+							  </when>
+							  <when test="orderType == 2">
+								  order by walk desc
+							  </when>
+							  <when test="orderType == 3">
+								  order by play desc
+							  </when>
+							  <when test="orderType == 4">
+								  order by food desc
+							  </when>
+							  <when test="orderType == 5">
+								  order by communication desc
+							  </when>
+					  </choose> 
+			</select>	
+		
+			<select id="selectSearchListD" parameterType="SearchListVo" resultType="SearchListVo">
+				<![CDATA[
+				  select    h.hostNo hostNo,
+					        u.name hostName,
+					        u.path path,
+					        h.hostView hostView,
+					        h.adress1 adress1,
+					        h.adress3 adress3,
+					        c.rp reviewPoint,
+					        h.hostCost hostCost,
+					        trunc(c.pp,1) puppyPoint,
+					        trunc(c.clean,1) clean,
+					        trunc(c.walk,1) walk,
+					        trunc(c.play,1) play,
+					        trunc(c.food,1) food,
+					        trunc(c.communication,1) communication,
+					        c.rp review
+					from    users u, host h, (select     h.hostNo, 
+					                                     count(review) rp,
+					                                     ((avg(clean) + avg(walk) + avg(play) + avg(food) + avg(communication))/5) pp,
+					                                     avg(clean) clean,
+					                                     avg(walk) walk,
+					                                     avg(play) play,
+					                                     avg(food) food,
+					                                     avg(communication) communication        
+					                          from       booking b, users u, host h
+					                          where      b.hostNo(+) = h.hostNo
+					                          and        h.usersNo = u.usersNo
+					                          group by   h.hostNo ) c
+					where u.usersNo = h.usersNo
+					and   c.hostNo = h.hostNo
+					and hostView = 1]]> 
+					
+				 	<include refid="search"></include>
+			 	    <choose>
+						  <when test="orderType == 0">
+						  	  order by puppyPoint desc nulls last
+						  </when>
+						  <when test="orderType == 1">
+							  order by clean desc nulls last
+						  </when>
+						  <when test="orderType == 2">
+						   	  order by walk desc nulls last
+						  </when>
+						  <when test="orderType == 3">
+						  	  order by play desc nulls last
+						  </when>
+						  <when test="orderType == 4">
+						   	  order by food desc nulls last
+						  </when>
+						  <when test="orderType == 5">
+						      order by communication desc nulls last
+						  </when>
+				   </choose> 
+				 	
+			</select>
+			
+			<sql id="search">
+				<if test="searchKeyword != null and searchKeyword != ''.toString()">
+						and
+					<if test="searchKeyword.toString()">
+						adress1 like '%' || #{searchKeyword} || '%'
+					</if>
+				</if>
+			</sql>
+			
+			<select id="selectSearchListD2" parameterType="map" resultType="SearchListVo">
+		   	 	<![CDATA[
+					select  rt.rn,
+					        rt.no,
+					        rt.title,
+					        rt.content,
+					        rt.hit,
+					        rt.regDate,
+					        rt.userNo,
+					        rt.name
+					from (select  rownum rn,
+								  ot.no,
+					              ot.title,
+					              ot.content,
+					              ot.hit,
+					              ot.regDate,
+					              ot.userNo,
+					              ot.name
+					      from (select   b.no,
+					                     b.title,
+					                     b.content,
+					                     b.hit,
+					                     to_char(b.reg_date, 'YYYY-MM-DD HH:MI:SS') regDate,
+					                     b.user_no userNo,
+					                     u.name name
+					             from board b, users u 
+					             where b.user_no = u.no
+					             order by no desc) ot
+					     ) rt
+					where rn> = #{startRnum}
+					and rn< = #{endRnum}
+		   	 	]]>	
+	   		</select>
+			
+			<!-- 전체게시글수 -->	  	
+		   	<select id="totalCnt" resultType="int">
+			   	<![CDATA[
+				   	select count(*)
+					from    users u, host h, (select     h.hostNo, 
+					                                     count(review) rp,
+					                                     ((avg(clean) + avg(walk) + avg(play) + avg(food) + avg(communication))/5) pp,
+					                                     avg(clean) clean,
+					                                     avg(walk) walk,
+					                                     avg(play) play,
+					                                     avg(food) food,
+					                                     avg(communication) communication        
+					                          from       booking b, users u, host h
+					                          where      b.hostNo(+) = h.hostNo
+					                          and        h.usersNo = u.usersNo
+					                          group by   h.hostNo ) c
+					where u.usersNo = h.usersNo
+					and   c.hostNo = h.hostNo
+					and hostView = 1
+			   	]]>
+		   	</select>
+	  	
+</mapper>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8"/>
+
+<!--CSS-->
+<link href="../../../assets/yu/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/yu/css/poto-upload.css" rel="stylesheet" type="text/css"/>
+
+
+<!--자바스크립트-->
+<script type="text/javascript" src="../../../assets/yu/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../../assets/yu/js/jquery-1.12.4.js"></script>
+
+<title>이미지 업로드</title>
+
+</head>
+
+<body>
+<div><!--class="modal fade"-->
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">이미지 업로드하기</h4>
+        </div>
+        <div class="modal-body" class="container-fluid">
+            <div class="row">
+              <div class="col-xs-2">
+              </div>
+
+              <div class="col-xs-8">
+                <div id="root">
+                  <div id="cate">
+                    <label>카테고리</label>
+                    <select class="bo_w_select">
+                      <option>식사</option>  
+                      <option>산책</option>  
+                      <option>청결</option>
+                      <option>놀이</option>
+                    </select>
+                  </div>
+
+                    <label>글제목</label>
+                    <input type="text">
+                  
+                  <hr>
+                  <div class="contents">
+                    <div class="upload-box">
+                      <div id="drop-file" class="drag-file">
+                        <img src="https://img.icons8.com/pastel-glyph/2x/image-file.png" alt="파일 아이콘" class="image" >
+                        <p class="message">마우스로 드래그해서 이미지를 추가해주세요</p>
+                        <img src="" alt="미리보기 이미지" class="preview">
+                      </div>
+                      <label class="file-label" for="chooseFile">확인</label>
+                      <input class="file" id="chooseFile" type="file" onchange="dropFile.handleFiles(this.files)" accept="image/png, image/jpeg, image/gif">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+        </div>
+      </div><!— /.modal-content —>
+    </div><!— /.modal-dialog —>
+  </div><!— /.modal —>
+  </body>
+
+  <script>
+    function DropFile(dropAreaId, fileListId) {
+
+      let dropArea = document.getElementById(dropAreaId);
+      let fileList = document.getElementById(fileListId);
+
+      function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      function highlight(e) {
+        preventDefaults(e);
+        dropArea.classList.add("highlight");
+      }
+
+      function unhighlight(e) {
+        preventDefaults(e);
+        dropArea.classList.remove("highlight");
+      }
+
+      function handleDrop(e) {
+        unhighlight(e);
+        let dt = e.dataTransfer;
+        let files = dt.files;
+
+        handleFiles(files);
+
+        const fileList = document.getElementById(fileListId);
+        if (fileList) {
+          fileList.scrollTo({ top: fileList.scrollHeight });
+        }
+      }
+
+      function handleFiles(files) {
+        files = [...files];
+        // files.forEach(uploadFile);
+        files.forEach(previewFile);
+      }
+
+      function previewFile(file) {
+        console.log(file);
+        renderFile(file);
+      }
+
+      function renderFile(file) {
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = function () {
+          let img = dropArea.getElementsByClassName("preview")[0];
+          img.src = reader.result;
+          img.style.display = "block";
+        };
+      }
+
+      dropArea.addEventListener("dragenter", highlight, false);
+      dropArea.addEventListener("dragover", highlight, false);
+      dropArea.addEventListener("dragleave", unhighlight, false);
+      dropArea.addEventListener("drop", handleDrop, false);
+
+      return {
+        handleFiles
+      };
+    }
+
+    const dropFile = new DropFile("drop-file", "files");
+  </script>
+  </html>

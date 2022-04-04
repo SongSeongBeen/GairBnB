@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+#content {
+	padding-left: 200px;
+}
+
+.views_bar{
+	margin-left: 16px;
+}
+
+#myAreaChart{
+	height: 400px;
+}
+
+.puppy{
+	font-size: 20px !important;
+	margin: 30px 0px 20px 0px;
+}
+
+.last_month{
+	margin: 0;
+}
+
+.this_month{
+	margin-left: -40px; 
+}
+
+.width640{
+	width:630px !important;
+}

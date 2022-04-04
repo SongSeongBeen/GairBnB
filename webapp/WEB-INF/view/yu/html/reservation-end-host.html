@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../../../assets/yu/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/yu/css/Gairbnb.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/yu/css/reservation.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/yu/css/fullcalendar.css" rel="stylesheet" type="text/css">
+</head>
+
+<script type="text/javascript" src="../../../assets/yu/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../../assets/yu/js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../../../assets/yu/js/fullcalendar.js"></script>
+<script type="text/javascript" src="../../../assets/yu/js/locales-all.js"></script>
+
+<body>
+
+    <div id="header">
+        <div id="logo" class="col-xs-3">
+            <img class="logo-img" src="../../../assets/yu/images/logo2.jpg">
+        </div>
+        <div id="search" class="col-xs-4">
+            <img class="logo-img" src="../../../assets/yu/images/2.png">
+        </div>
+        <div id="menu" class="col-xs-2">
+            <button type="button" class="btn btn-default menu">펫시터되기</button>
+            <button type="button" class="btn btn-default menu"><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="margin:0px;"></span><span class="badge">0</span></button>
+            <button type="button" class="btn btn-default menu"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" style="margin:0px;"></span></button>
+        </div>
+    </div>
+
+    <div id="header_line" class="container-fluid"></div>
+
+	<div id="wrap">
+
+		<div id="container" class="clearfix">
+			<div id="aside">
+				<ul id="b-aside">
+					<li class="menu">예약관리<img src="../../../assets/yu/images/aside.png" class="aside-img"></li>
+					<ul id="s-aside" class="hide">
+						<li>대기내역</li>
+						<li>예약신청관리</li>
+					</ul>
+					<li>나의 강아지</li>
+					<li>메세지</li>
+					<li>찜목록</li>
+					<li>호스트 정보 수정</li>
+				</ul>
+			</div>
+
+			<div id="content" class="clearfix">
+				<div id="content-head">
+					<div id="location" class="clearfix">
+						<ul>
+							<li>마이페이지</li>
+							<li>예약관리</li>
+							<li class="last">예약신청관리</li>
+						</ul>
+					</div>
+					<h1>예약신청관리</h1>
+				</div>
+
+				<div id="content-main" class="clearfix">
+					<div id="l-calendar"></div>
+					<div id="r-calendar">
+						<div id="r-calendar0" class="box-shadow">
+							<div id="r-calendar1">
+								<h2>검색노출</h2>
+								<input type="checkbox" id="checkbox" checked> <label for="checkbox"><span></span></label>
+							</div>
+							<div id="r-calendar2">기본적으로 모든 날짜는 예약 불가능으로 설정되어 있습니다.</div>
+							<div id="r-calendar3">예약 가능 여부 설정 변경</div>
+							<div id="r-calendar4" class="clearfix">
+								<div id="r-possible1"></div>
+								<div id="r-possible2">예약 가능</div>
+							</div>
+							<div id="r-calendar5" class="clearfix">
+								<div id="r-impossible1"></div>
+								<div id="r-impossible2">차단됨</div>
+							</div>
+						</div>
+						<button class="allBtn">예약모두닫기</button>
+						<button class="allBtn">예약모두열기</button>
+
+					</div>
+					<div id="r-list">
+
+                        <button class="btn btn-default hover-boot list-btn" type="submit">메세지보내기</button>
+						<table class="table table-hover">
+                            
+							<thead id="guest-table">
+								<tr>
+                                    <th></th>
+									<th>예약번호</th>
+									<th>프로필사진</th>
+									<th>닉네임</th>
+									<th>예약날짜</th>
+									<th>가격</th>
+									<th>휴대전화</th>
+									<th>예약현황</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+                                    <td><input type="radio" name="list-radio"></td>
+									<td id="no">11111</td>
+									<td><img src="../../../assets/yu/images/dog.png"></td>
+									<td>개장수</td>
+									<td>22/05/01 ~ 22/05/03
+									</td>
+									<td>₩ 20,000</td>
+									<td>010-1111-1111</td>
+									<td><div class="btn-re-gradient yellow mini">예약완료</div></td>
+								</tr>
+								<tr>
+                                    <td><input type="radio" name="list-radio"></td>
+									<td id="no">22222</td>
+									<td><img src="../../../assets/yu/images/dog.png"></td>
+									<td>강형욱</td>
+									<td>22/05/0 ~ 22/05/03
+									</td>
+									<td>₩ 20,000</td>
+									<td>010-2222-2222</td>
+									<td><div class="btn-re-gradient orange mini">펫시팅중</div></td>
+								</tr>
+								<tr>
+                                    <td><input type="radio" name="list-radio"></td>
+									<td id="no">33333</td>
+									<td><img src="../../../assets/yu/images/dog.png"></td>
+									<td>이경규</td>
+									<td>22/05/01 ~ 22/05/03
+									</td>
+									<td>₩ 20,000</td>
+									<td>010-3333-3333</td>
+									<td>
+										<div class="btn-re-gradient blue mini">&nbsp&nbsp&nbsp완료&nbsp&nbsp&nbsp</div>
+									</td>
+								</tr>
+								<tr>
+                                    <td><input type="radio" name="list-radio"></td>
+									<td id="no">33333</td>
+									<td><img src="../../../assets/yu/images/dog.png"></td>
+									<td>이경규</td>
+									<td>22/05/01 ~ 22/05/03
+									</td>
+									<td>₩ 20,000</td>
+									<td>010-4444-4444</td>
+									<td>
+										<div class="btn-re-gradient blue mini">&nbsp&nbsp&nbsp완료&nbsp&nbsp&nbsp</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+                    </div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+
+<script>
+	/* aside */
+	// html dom 이 다 로딩된 후 실행된다.
+	$(document).ready(function() {
+		// memu 클래스 바로 하위에 있는 a 태그를 클릭했을때
+		$(".menu").click(function() {
+			// 현재 클릭한 태그가 a 이기 때문에
+			// a 옆의 태그중 ul 태그에 hide 클래스 태그를 넣던지 빼던지 한다.
+			$(this).next("ul").toggleClass("hide");
+		});
+	});
+
+	/* 달력 */
+	document.addEventListener('DOMContentLoaded', function() {
+
+		var calendarEl = document.getElementById('l-calendar');
+		var calendar = new FullCalendar.Calendar(calendarEl, {
+
+			initialView : 'dayGridMonth', // 월 달력
+
+			// 달력 툴
+			headerToolbar : {
+				left : 'prev',
+				center : 'title',
+				right : 'next today,dayGridMonth'
+			},
+
+			editable : true, // 드래그 수정 가능
+			locale : 'ko', // 한국어 설정(lib/locales/ko.js)
+
+			// 요일 클릭 이벤트
+			dateClick : function() {
+				alert('요일 클릭!');
+			},
+
+			// 일정 클릭 이벤트
+			eventClick : function() {
+				alert('일정 클릭!');
+			},
+
+		});
+
+		// 데이터 삽입방식
+
+		calendar.addEvent({
+			'title' : '개장수',
+			'start' : '2022-02-01'
+		});
+
+		calendar.addEvent({
+			'title' : '고객2-펌',
+			'start' : '2020-07-18T22:00'
+		});
+
+		calendar.addEvent({
+			'title' : '강형욱',
+			'start' : '2022-02-18',
+			'end' : '2022-02-23'
+		});
+
+		// 렌더링
+
+		calendar.render();
+
+	});
+</script>
+</html>

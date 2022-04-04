@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+	
+	<!-- 회원가입 -->
+	<insert id="join" parameterType="com.javaex.vo.UserVo">
+		<![CDATA[
+			insert into users
+			values(seq_users_no.nextval, #{id}, #{password}, #{name}, #{hp}, null, 1)
+		]]>
+	</insert>
+	
+	
+	<!-- 로그인(게스트) -->
+	<select id="loginGuest" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
+		<![CDATA[
+			select  usersNo,
+					name,
+					usersType
+			from 	users
+			where   id = #{id}
+			and     password = #{password}
+		]]>
+	</select>
+	
+	
+	<!-- 로그인(호스트) -->
+	<select id="loginHost" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
+		<![CDATA[
+			select  u.usersNo,
+					u.name,
+					u.usersType,
+					h.hostNo
+			from 	users u, host h
+			where   u.usersNo = h.usersNo
+			and	    id = #{id}
+			and     password = #{password}
+		]]>
+	</select>
+	
+	
+   <!--유저 수정 폼으로 기존 정보 불러오기-->
+	<select id="selectUserByNo" parameterType="int" resultType="UserVo">
+		<![CDATA[
+		select 	u.usersNo,
+      			u.name,
+      			u.password,
+      			u.hp,
+      			u.path
+      	from users u
+		where usersNo = #{usersNo}
+		]]>
+	</select>
+	
+
+	<!-- 유저 정보수정 시 나머지 업데이트 -->	
+	<update id="updateUser" parameterType="UserVo">
+		<![CDATA[
+			update users
+			set name = #{name},
+				password = #{password},
+				hp = #{hp}
+			where usersNo = #{usersNo}
+		]]>
+	</update>
+	
+	
+	<!-- 유저 정보수정 시 프로필사진 업데이트 -->
+	<update id="updateProfile" parameterType="UserVo">
+		<![CDATA[
+			update users
+			set path = #{path}
+			where usersNo = #{usersNo}
+		]]>
+	</update>
+	
+	
+	<!-- 유저 찜 폼으로 기존 정보 불러오기 -->
+	<select id="selectHeartByNo" parameterType="int" resultType="HeartVo">
+		<![CDATA[
+			select he.heartNo,
+			       ho.hostNo,
+			       us.name,
+			       us.path,
+			       ho.adress1,
+                   ho.hostcost,
+			       bo.reviewcount,
+                   trunc(bo.puppypoint, 2)puppypoint
+			from   heart he, users us, host ho, (select count(*) reviewcount,
+                                                        avg((clean+food+play+walk+communication)/5) as puppypoint
+                                                 from   booking
+                                                 where  usersNo = #{usersNo}
+                                                 and    review is not null) bo
+			where  he.hostNo = ho.hostNo
+			and    ho.usersNo = us.usersNo
+			and    he.usersNo = #{usersNo}
+		]]>
+	</select>
+	
+	
+	<!-- 유저 찜 삭제-->
+	<delete id="heartDelete" parameterType="int">
+		<![CDATA[
+			delete from heart
+			where heartNo = #{heartNo}
+		]]>
+	</delete>
+	
+	
+</mapper>

@@ -1,0 +1,255 @@
+@charset "UTF-8";
+/******************************************
+초기화 관련
+******************************************/
+
+/*여백 초기화*/
+body, div, ul, li, dl, dt, ol, ht, h2, h3, h4, h5, h6,
+input, fieldset, legend, p, select, table, th, td, tr,
+textarea, button, form {margin:0; padding:0;}
+
+body {font-family: 'Noto Sans KR', sans-serif; color: #333; background-color: #fff !important;}
+
+ul, ol {list-style-type: none;}
+a:link {text-decoration: none; color: #000}
+a:visited {text-decoration: none; color: #000}
+a:active {text-decoration: none; color: #000}
+a:hover {text-decoration: none; color: #000}
+
+/* clearfix */
+.clearfix{*zoom:1;}
+.clearfix:before, .clearfix:after {display: block; content: ""; line-height: 0;}
+.clearfix:after {clear: both;}
+
+/* 레이아웃 관련 */
+#wrap {margin: 0px auto; width: 1440px;}
+
+#container { width: 1440px;}
+
+#aside {
+	float: left;
+	width: 240px;
+	padding: 0px 0px 0px 0px;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+#content {
+	float: left;
+	width: 1200px;
+	margin: 0px 0px 100px 0px;
+}
+
+/* 왼쪽메뉴(aside) */
+#aside:hover {
+	cursor: pointer;
+}
+
+#aside #b-aside {
+	padding: 45px 0px 0px 0px;
+	width: 240px;
+}
+
+#aside>#b-aside {
+	margin: 0px 0px 0px 0px;
+}
+
+.aside-img {
+	width: 30px;
+	margin: 0px 0px 0px 125px;
+	vertical-align: middle;
+}
+
+#aside #b-aside>li {
+	padding-left: 10px;
+	display: block;
+	line-height: 60px;
+	height: 60px;
+}
+
+#aside #b-aside>ul>li {
+	padding: 20px 0px 20px 30px;
+	text-align: left;
+	background-color: #eeeeee;
+}
+
+#aside #b-aside>#s-aside>ul>li:hover {
+	background-color: #eeeeee;
+}
+
+.hide {
+	display: none;
+}
+
+/* 메인컨텐츠(content) */
+#content-head {
+	margin: 45px 0px 30px 30px;
+}
+
+#content-head h1 {
+	height: 40px;
+	line-height: 30px;
+	margin: 3px 0px 3px 0px;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#content-head #location {
+	display: inline-block;
+	margin: 25px 0px 0px 0px;
+	font-size: 12px;
+}
+
+#content-head #location ul>li {
+	float: left;
+}
+
+#content-head #location ul>li:after {
+	content: ">";
+	margin: 0px 5px 0px 5px;
+}
+
+#content-head #location ul>li.last:after {
+	content: none;
+}
+
+#content-main {
+	margin: 0px 0px 0px 30px;
+}
+
+/* 클리어픽스 */
+.clearfix {
+	*zoom: 1;
+}
+
+.clearfix:before, .clearfix:after {
+	display: block;
+	content: "";
+	line-height: 0;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/**/
+#joinform {
+	margin: 0px 0px 0px 50px;
+	width: 1000px;
+}
+.exp{
+	font-size: 16px;
+	display: inline-block;
+	margin: 8px 0px 15px 15px;
+	color: #777;
+}
+.list {
+  text-align: left;
+  padding: 50px 300px 30px 300px; 
+  font-size: 23px;  
+}
+
+/*질문01. 사진*/
+/* 드래그 앤 드롭 */
+
+
+/*질문02. 키워드선택*/
+/* 키워드 버튼 */
+.tag{
+  display: inline-block;
+  padding: .2em .6em .3em;
+  margin: 0px 2px 0px 0px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  color: #666;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background-color: #FFF;
+  border:1px solid #666;
+}
+.tag:hover{
+  background-color: #DDD;
+}
+.Q table tr td{
+  margin:0px 0px 0px 10px;
+}
+
+/*질문03,질문04.소개박스*/
+#input-intro {
+  width : 700px;
+  height : 100px;
+  margin: 0 0 0 140px;
+  border : 1px solid gray;
+  border-radius : 20px;
+  text-align: left;
+  display : block;
+  resize: none;
+}
+
+/*질문04.소개박스*/
+#intput-question {
+  width : 700px;
+  height : 100px;
+  margin: 0 0 0 140px;
+  border : 1px solid gray;
+  border-radius : 20px;
+  text-align: left;
+  display : block;
+  resize: none;
+}
+
+/*질문05번.주소*/
+#address {
+  text-align: left;
+  padding: 0px 0px 0 320px;
+}
+#address #sample4_jibunAddress{
+	width: 408px;
+}
+
+/*질문06.돌봄료책정*/
+.LQ #cost{
+  width:200px;
+  height: 50px;
+  margin: 0px 0px 0px 400px;
+  text-align: right;
+  font-size:20px;
+}
+
+/*마지막 동의 체크박스 */
+.checkbox {
+  text-align: center;
+  margin: 80px 20px 0px 50px;
+}
+
+/*이외 컨테이너 속*/
+#holder { 
+  border: 10px dashed #ccc; 
+  width: 300px; 
+  height: 300px; 
+}
+
+#holder.hover { 
+  border: 10px dashed #333; 
+}
+
+.Q{
+  padding: 30px 0px 30px 30px;
+  border-bottom:1px solid #BBB;
+}
+
+#container .LQ{
+  padding: 20px 0px 30px 30px;
+  border-bottom:0px;
+}
+
+#finalbtn {
+  padding:10px;
+}
+
+

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="item">
+	<!-- (전체)상품 리스트 가져오기 -->
+	<select id="getItemList" resultType="ItemVo">
+		<![CDATA[
+			select itemNo,
+			       usersNo,
+			       category,
+			       title,
+			       info,
+			       ea,
+			       to_char(cost, '999,999,999') stringcost,
+			       path
+			from   item
+			where  views = 1
+		]]>
+	</select>
+	<!-- (카테고리)상품 리스트 가져오기 -->
+	<select id="getCategoryList" parameterType="String" resultType="ItemVo">
+		<![CDATA[
+			select itemNo,
+			       usersNo,
+			       category,
+			       title,
+			       info,
+			       ea,
+			       to_char(cost, '999,999,999') stringcost,
+			       cost,
+			       path
+			from   item
+			where  views = 1
+			and    category = #{category}
+		]]>
+	</select>
+	
+	<!-- 상품정보 가져오기 -->
+	<select id="getItem" resultType="ItemVo">
+		<![CDATA[
+			select itemNo,
+			       usersNo,
+			       category,
+			       title,
+			       info,
+			       ea,
+			       to_char(cost, '999,999,999') stringcost,
+			       cost,
+			       path,
+			       infopath
+			from   item
+			where  itemNo = #{itemNo}
+		]]>
+	</select>
+	
+	<!-- 상품정보 가져오기 -->
+	<select id="getHistoryList" parameterType="int" resultType="ItemVo">
+		<![CDATA[
+			select h.historyNo,
+				   h.usersNo,
+                   h.historytitle as title,
+                   h.historyhp as hp,
+                   to_char(h.historycost, '999,999,999') as stringcost,
+                   cost,
+                   to_char(h.historydate, 'YYYY-MM-DD') as itemdate,
+                   h.historystatus as status,
+                   h.historyea as ea,
+                   i.path
+			from   itemhistory h, item i
+            where  h.itemNo = i.itemNo
+			and    h.usersNo = #{usersNo}
+		]]>
+	</select>
+	<!-- 관리자 상품 리스트 가져오기 -->
+	<select id="getAdminList" resultType="ItemVo">
+		<![CDATA[
+			select itemNo,
+			       usersNo,
+			       category,
+			       title,
+			       info,
+			       ea,
+			       cost,
+			       path,
+			       views
+			from   item
+			where  usersNo = #{usersNo}
+		]]>
+	</select>
+	
+	<!-- 상품 추가  -->
+	<insert id="itemInsert" parameterType="ItemVo">
+		<![CDATA[
+			insert into item
+			values(seq_item_no.nextval, #{usersNo}, #{category}, #{title}, #{info}, #{cost}, #{ea}, #{path}, #{infopath} 1)
+		]]>
+	</insert>
+
+	<!-- 결제 -->
+	<insert id="historyInsert" parameterType="ItemVo">
+		<![CDATA[
+			insert into itemhistory
+			values(seq_itemhistory_no.nextval, #{usersNo}, #{sellerNo}, #{itemNo}, #{cost}, #{title},#{hp}, #{address1}, #{address2}, sysdate, #{ea},'배송준비중', null, null, null)
+		]]>
+	</insert>
+	
+	<!-- 장바구니 추가  -->
+	<insert id="cartInsert" parameterType="ItemVo">
+		<![CDATA[
+			insert into cart
+			values(seq_cart_no.nextval, #{usersNo}, #{itemNo})
+		]]>
+	</insert>
+	
+	<!-- 재고 변경  -->
+	<update id="setea" parameterType="ItemVo">
+		<![CDATA[
+			update item
+			set    ea = #{ea}
+			where  itemNo = #{itemNo}
+		]]>
+	</update>
+	
+	<!-- 재고 -1  -->
+	<update id="useEa" parameterType="int">
+		<![CDATA[
+			update item
+			set    ea = ea-1
+			where  itemNo = #{itemNo}
+		]]>
+	</update>
+	
+	<!-- 상품 삭제  -->
+	<insert id="delete" parameterType="int">
+		<![CDATA[
+			delete item
+			where  itemNo = #{itemNo}
+		]]>
+	</insert>
+</mapper>

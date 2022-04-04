@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8"/>
+
+<!--CSS-->
+<link href="../../../assets/yu/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/yu/css/login.css" rel="stylesheet" type="text/css"/>
+
+
+<!--자바스크립트-->
+<script type="text/javascript" src="../../../assets/yu/js/bootstrap.js"></script>
+
+<title>회원가입창</title>
+
+</head>
+
+<body>
+<div><!--class="modal fade"-->
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">회원 가입 완료하기</h4>
+        </div>
+        <div class="modal-body" class="container-fluid">
+            <div id="u-idPass" class="row">
+                <div>
+                    <input id="u-id" type="text" placeholder="아이디">
+                </div>
+                <button id="overlap">중복확인</button>
+                <p></p>
+            </div>
+            
+            <div class="row">
+                    <input id="join-u-pass" type="password" placeholder="비밀번호">
+                    <input id="u-name" type="text" placeholder="이름">
+                    <p>정부 발급 신분증에 표시된 이름과 일치하는지 확인하세요.</p>
+            </div>
+
+            <div class="row">
+                <input id="birth" type="text" placeholder="휴대폰번호">
+                <p>11자리의 숫자를 일렬로 입력해주세요.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1">
+                </div>
+                <div class="col-xs-10">
+                    <button id="join-submit">계속</button>
+                </div>
+            </div>
+            
+            
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog  -->
+  </div><!-- /.modal -->
+  </body>
+  </html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="finishP">
+	
+	<!-- 쿼리문 작성 -->
+	
+	<select id="selectPay"   parameterType="int"  resultType="FinishPVo">
+		<![CDATA[
+		select  u.name, 
+        		u.hp, 
+        		h.adress1,
+        		h.adress2,
+        		h.adress3, 
+        		b.bookingNo,
+        		to_char(checkin, 'yyyy-mm-dd') checkin,
+        		to_char(checkout, 'yyyy-mm-dd') checkout,
+        		b.ea, 
+        		b.note,
+        		b.bookingDate,
+        		b.days,
+        		b.bookingNo
+		from users u, host h, booking b
+		where u.usersno = h.usersno and h.hostno = b.hostno
+		and b.bookingNo = #{bookingNo}
+	        ]]>
+	</select>
+	
+	<!-- 시팅완료로 상태바꾸기 -->
+	<update id="updateStatusP" parameterType="int">
+		<![CDATA[
+			update booking
+			set	   status = '예약완료'
+			where  bookingNo = #{bookingNo}
+		]]>
+	</update>
+
+
+</mapper>

@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/******************************************
+초기화 관련
+******************************************/
+
+/* 여백 초기화 */
+body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, 
+input, fieldset, legend, p, select, table, th, td, tr,
+textarea, button, form {margin: 0; padding: 0;}
+
+body {font-family: 'Noto Sans KR', sans-serif; color: #333; background-color: #fff !important;}
+
+ul, ol {list-style-type: none;}
+a:link {text-decoration: none; color: #000}
+a:visited {text-decoration: none; color: #000}
+a:active {text-decoration: none; color: #000}
+a:hover {text-decoration: none; color: #000}
+
+/* clearfix */
+.clearfix{*zoom:1;}
+.clearfix:before, .clearfix:after {display: block; content: ""; line-height: 0;}
+.clearfix:after {clear: both;}
+
+/* 레이아웃 */
+#wrap {margin: 0px auto; width: 1440px;}		
+#container { width: 1440px;}
+#aside {float: left; width: 360px; padding: 0px 0px 0px 0px;}
+#content { float: left; width: 1080px; margin: 0px 0px 100px 0px;}
+
+#joinform {
+	margin: 50px 0px 0px 220px;
+}
+.exp{
+	font-size: 16px;
+	display: inline-block;
+	margin: 8px 0px 15px 15px;
+	color: #777;
+}
+.list {
+  text-align: left;
+  padding: 50px 300px 30px 300px; 
+  font-size: 23px;  
+}
+.color {
+    background-color:#3D9BE9;
+    border-color:#3D9BE9 !important;
+}
+.lead{
+	margin: 0px;
+}
+#container>h2{
+	margin: 50px 0px 50px 660px;
+}
+#payArea{
+	padding: 0px 0px 0px 460px;
+}
+#payArea #iteminfo{
+	border:1px solid #DDD;
+	width: 500px;
+	height: 170px;
+	padding: 10px 0px 10px 10px;
+}
+	#payArea #iteminfo h3{
+	margin: 0px 0px 20px 0px;
+	}
+	#payArea #iteminfo .info{
+		margin: 30px 0px 0px 0px;
+	}
+	#payArea #iteminfo img{
+		width:90px;
+		float:left;
+		margin: 0px 10px 0px 0px;
+	}
+#payArea #userinfo{
+	border:1px solid #DDD;
+	padding: 10px 0px 10px 10px;
+	width: 500px;
+	height: 242px;
+}
+	#payArea #userinfo h3{
+	margin: 0px 0px 20px 0px;
+	}
+	#uinfo{
+	margin: 0px 0px 0px 80px;
+	}
+	#uinfo input{
+		margin: 0px 0px 10px 0px;
+		border-radius: 0px;
+		border: 1px solid #BBB;
+	}
+	#uinfo #sample4_jibunAddress{
+		width: 305px;
+	}
+	#uinfo #sample4_detailAddress{
+		width: 305px;
+	}
+	#uinfo #payment-btn{
+		margin: 10px 0px 10px 110px;
+	}
+#payArea #payinfo{
+	border:1px solid #DDD;
+	width: 500px;
+	height: 200px;
+}
